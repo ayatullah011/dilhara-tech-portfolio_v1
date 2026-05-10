@@ -18,25 +18,80 @@
       scroll-behavior: smooth;
     }
 
+    :root {
+      --bg-color: #f4f7fb;
+      --card-color: #ffffff;
+      --text-color: #0f172a;
+      --small-text: #475569;
+      --primary-color: #f803f0;
+      --primary-dark: #c902c3;
+      --border-color: #e2e8f0;
+      --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      --hero-bg: linear-gradient(135deg, #eff6ff, #ffffff);
+    }
+
+    body.dark-mode {
+      --bg-color: #020617;
+      --card-color: #0f172a;
+      --text-color: #f8fafc;
+      --small-text: #cbd5e1;
+      --primary-color: #f803f0;
+      --primary-dark: #c902c3;
+      --border-color: #334155;
+      --shadow: 0 8px 25px rgba(96, 165, 250, 0.12);
+      --hero-bg: linear-gradient(135deg, #020617, #0f172a);
+    }
+
     body {
-      background-color: #f4f7fb;
-      color: #222;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       line-height: 1.6;
+      transition: 0.3s;
     }
 
     section {
-      padding: 70px 10%;
+      padding: 75px 10%;
     }
 
     .section-title {
       text-align: center;
-      font-size: 32px;
-      margin-bottom: 35px;
-      color: #0f172a;
+      font-size: 34px;
+      margin-bottom: 40px;
+      color: #ffffff;
     }
 
     .section-title span {
-      color: #2563eb;
+      color: var(--primary-color);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: var(--primary-color);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      border: 2px solid var(--primary-color);
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-dark);
+      border-color: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary-color);
+      margin-left: 10px;
+    }
+
+    .btn-outline:hover {
+      background-color: var(--primary-color);
+      color: #ffffff;
     }
 
     /* ===== NAVBAR ===== */
@@ -44,59 +99,78 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background-color: #fc03d7;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      background-color: var(--primary-color);
+      box-shadow: var(--shadow);
+      transition: 0.3s;
     }
 
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 10%;
+      padding: 17px 10%;
     }
 
     .logo {
-      font-size: 26px;
+      font-size: 25px;
       font-weight: 900;
-      color: #2563eb;
+      color: #ffffff;
       letter-spacing: 1px;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .logo span {
-      color: #0f172a;
+      color: #ffffff;
     }
 
     .logo small {
-      background-color: #2563eb;
-      color: #ffffff;
+      background-color: #ffffff;
+      color: var(--primary-color);
       padding: 4px 8px;
       border-radius: 8px;
       margin-right: 6px;
-      font-size: 18px;
+      font-size: 17px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
 
     .nav-links {
       display: flex;
       list-style: none;
-      gap: 25px;
+      gap: 22px;
     }
 
     .nav-links a {
       text-decoration: none;
-      color: #0f172a;
+      color: #ffffff;
       font-weight: 600;
       transition: 0.3s;
     }
 
     .nav-links a:hover {
-      color: #2563eb;
+      color: #ffe6fd;
+    }
+
+    .theme-btn {
+      border: none;
+      background-color: #ffffff;
+      color: var(--primary-color);
+      padding: 9px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
     .menu-btn {
       display: none;
       font-size: 28px;
       cursor: pointer;
+      color: var(--text-color);
     }
 
     /* ===== HERO SECTION ===== */
@@ -105,63 +179,78 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 40px;
-      background: linear-gradient(to right, #eff6ff, #ffffff);
+      gap: 45px;
+      background: var(--hero-bg);
     }
 
     .hero-text {
       flex: 1;
     }
 
+    .hero-badge {
+      display: inline-block;
+      background-color: rgba(248, 3, 240, 0.12);
+      color: var(--primary-color);
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
     .hero-text h1 {
-      font-size: 48px;
-      color: #0f172a;
+      font-size: 52px;
+      color: var(--text-color);
       margin-bottom: 15px;
+      line-height: 1.2;
     }
 
     .hero-text h1 span {
-      color: #2563eb;
+      color: var(--primary-color);
     }
 
     .hero-text h3 {
       font-size: 24px;
-      color: #334155;
+      color: var(--small-text);
       margin-bottom: 20px;
     }
 
     .hero-text p {
       font-size: 18px;
-      margin-bottom: 30px;
-      max-width: 550px;
-      color: #475569;
+      margin-bottom: 28px;
+      max-width: 580px;
+      color: var(--small-text);
     }
 
-    .btn {
-      display: inline-block;
-      padding: 12px 25px;
-      background-color: #2563eb;
-      color: #ffffff;
+    .hero-buttons {
+      margin-bottom: 25px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: var(--card-color);
+      color: var(--primary-color);
+      border: 1px solid var(--border-color);
       text-decoration: none;
-      border-radius: 8px;
       font-weight: bold;
+      box-shadow: var(--shadow);
       transition: 0.3s;
     }
 
-    .btn:hover {
-      background-color: #1d4ed8;
-      transform: translateY(-3px);
-    }
-
-    .btn-outline {
-      background-color: transparent;
-      color: #2563eb;
-      border: 2px solid #2563eb;
-      margin-left: 10px;
-    }
-
-    .btn-outline:hover {
-      background-color: #2563eb;
+    .social-icons a:hover {
+      background-color: var(--primary-color);
       color: #ffffff;
+      transform: translateY(-4px);
     }
 
     .hero-image {
@@ -171,16 +260,31 @@
     }
 
     .profile-card {
-      width: 360px;
-      height: 460px;
+      width: 370px;
+      height: 470px;
       background: linear-gradient(135deg, #dbeafe, #ffffff);
-      border-radius: 30px;
+      border-radius: 35px;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.25);
-      border: 6px solid #ffffff;
+      box-shadow: 0 20px 40px rgba(248, 3, 240, 0.25);
+      border: 6px solid var(--card-color);
+      position: relative;
+    }
+
+    .profile-card::after {
+      content: "Dilhara Tech";
+      position: absolute;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.75);
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-weight: bold;
+      white-space: nowrap;
     }
 
     .profile-card img {
@@ -192,136 +296,247 @@
 
     /* ===== ABOUT SECTION ===== */
     .about-content {
-      max-width: 850px;
+      max-width: 900px;
       margin: auto;
-      background-color: #ffffff;
+      background-color: var(--card-color);
       padding: 35px;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
       text-align: center;
+      border: 1px solid var(--border-color);
     }
 
     .about-content p {
       font-size: 18px;
-      color: #475569;
+      color: var(--small-text);
     }
 
     /* ===== SKILLS SECTION ===== */
     .skills-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
+      gap: 22px;
     }
 
     .skill-box {
-      background-color: #ffffff;
+      background-color: var(--card-color);
       padding: 25px;
       text-align: center;
-      border-radius: 12px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
       font-weight: bold;
-      color: #0f172a;
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
       transition: 0.3s;
+      animation: fadeUp 0.8s ease forwards;
     }
 
     .skill-box:hover {
-      transform: translateY(-8px);
-      color: #2563eb;
+      transform: translateY(-8px) scale(1.03);
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    .skill-icon {
+      font-size: 32px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* ===== PROJECTS SECTION ===== */
     .projects-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
     }
 
     .project-card {
-      background-color: #ffffff;
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      background-color: var(--card-color);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
       transition: 0.3s;
     }
 
     .project-card:hover {
       transform: translateY(-8px);
+      border-color: var(--primary-color);
     }
 
-    .project-card h3 {
-      color: #2563eb;
+    .project-image {
+      height: 180px;
+      background: linear-gradient(135deg, #ffe6fd, #ffd1fb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #c902c3;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 24px;
+    }
+
+    .project-content h3 {
+      color: var(--primary-color);
       margin-bottom: 10px;
     }
 
-    .project-card p {
-      color: #475569;
+    .project-content p {
+      color: var(--small-text);
       margin-bottom: 15px;
     }
 
     .project-tag {
       display: inline-block;
-      background-color: #dbeafe;
-      color: #2563eb;
+      background-color: rgba(248, 3, 240, 0.12);
+      color: var(--primary-color);
       padding: 6px 12px;
       border-radius: 20px;
       font-size: 14px;
       margin: 5px 5px 5px 0;
+      font-weight: bold;
+    }
+
+    .project-buttons {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .project-buttons a {
+      padding: 9px 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .demo-btn {
+      background-color: var(--primary-color);
+      color: #ffffff;
+    }
+
+    .code-btn {
+      color: var(--primary-color);
+      border: 1px solid var(--primary-color);
+    }
+
+    .demo-btn:hover,
+    .code-btn:hover {
+      transform: translateY(-3px);
     }
 
     /* ===== EDUCATION SECTION ===== */
     .education-box {
-      max-width: 800px;
+      max-width: 850px;
       margin: auto;
-      background-color: #ffffff;
-      padding: 30px;
-      border-left: 5px solid #2563eb;
-      border-radius: 12px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      background-color: var(--card-color);
+      padding: 32px;
+      border-left: 5px solid var(--primary-color);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
     }
 
     .education-box h3 {
-      color: #0f172a;
+      color: var(--text-color);
       margin-bottom: 10px;
     }
 
     .education-box p {
-      color: #475569;
+      color: var(--small-text);
       margin-bottom: 8px;
     }
 
     /* ===== CONTACT SECTION ===== */
-    .contact-container {
-      max-width: 700px;
-      margin: auto;
-      background-color: #ffffff;
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .contact-info,
+    .contact-form {
+      background-color: var(--card-color);
       padding: 35px;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
     }
 
-    .contact-container p {
-      margin-bottom: 15px;
-      font-size: 18px;
-      color: #475569;
+    .contact-info p {
+      margin-bottom: 16px;
+      font-size: 17px;
+      color: var(--small-text);
     }
 
-    .contact-container strong {
-      color: #0f172a;
+    .contact-info strong {
+      color: var(--text-color);
     }
 
-    .contact-container a {
-      color: #2563eb;
+    .contact-info a {
+      color: var(--primary-color);
       text-decoration: none;
       font-weight: 600;
     }
 
-    .contact-container a:hover {
+    .contact-info a:hover {
       text-decoration: underline;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 13px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      outline: none;
+      font-size: 15px;
+    }
+
+    .contact-form textarea {
+      height: 130px;
+      resize: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--primary-color);
     }
 
     /* ===== FOOTER ===== */
     footer {
-      background-color: #fc03d7;
+      background-color: #0f172a;
       color: #ffffff;
       padding: 50px 10% 20px;
     }
@@ -364,13 +579,15 @@
       margin-bottom: 10px;
     }
 
-    .footer-box ul li a {
+    .footer-box ul li a,
+    .footer-box a {
       color: #cbd5e1;
       text-decoration: none;
       transition: 0.3s;
     }
 
-    .footer-box ul li a:hover {
+    .footer-box ul li a:hover,
+    .footer-box a:hover {
       color: #60a5fa;
       padding-left: 5px;
     }
@@ -387,35 +604,55 @@
     }
 
     /* ===== RESPONSIVE DESIGN ===== */
-    @media (max-width: 768px) {
-      .menu-btn {
-        display: block;
-      }
-
-      .nav-links {
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 100%;
-        background-color: #ffffff;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-        display: none;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
+    @media (max-width: 900px) {
       .hero {
         flex-direction: column;
         text-align: center;
         padding-top: 60px;
       }
 
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons,
+      .social-icons {
+        justify-content: center;
+      }
+
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {$1.nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        align-items: center;
+        padding: 25px 0;
+        display: none;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-right {
+        gap: 12px;
+      }
+
+      .theme-btn {
+        padding: 8px 10px;
+      }
+
       .hero-text h1 {
-        font-size: 36px;
+        font-size: 38px;
       }
 
       .hero-text h3 {
@@ -423,8 +660,8 @@
       }
 
       .profile-card {
-        width: 260px;
-        height: 340px;
+        width: 270px;
+        height: 350px;
       }
 
       .btn-outline {
@@ -445,36 +682,49 @@
     <nav class="navbar">
       <div class="logo"><small>D</small>Dilhara <span>Tech</span></div>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <div class="nav-right">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" onclick="closeMenu()">Home</a></li>
+          <li><a href="#about" onclick="closeMenu()">About</a></li>
+          <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+          <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+          <li><a href="#education" onclick="closeMenu()">Education</a></li>
+          <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+        </ul>
 
-      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+        <div class="menu-btn" onclick="toggleMenu()" id="menuBtn">☰</div>
+      </div>
     </nav>
   </header>
 
   <!-- ===== HERO SECTION ===== -->
   <section class="hero" id="home">
     <div class="hero-text">
+      <span class="hero-badge">Welcome to Dilhara Tech</span>
       <h1>Hello, I am <span>Abdullahi Adan Mohamed</span></h1>
-      <h3>Computer Applications Student</h3>
+      <h3>Computer Applications Student & Future Developer</h3>
       <p>
         I am a semester six university student learning web development,
         OOP concepts, database systems, and software development. This portfolio
-        will store my projects and show my progress as a developer.
+        stores my projects and shows my progress as a developer.
       </p>
-      <a href="#projects" class="btn">View Projects</a>
-      <a href="#contact" class="btn btn-outline">Contact Me</a>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="btn">View Projects</a>
+        <a href="cv.pdf" class="btn btn-outline" download>Download CV</a>
+      </div>
+
+      <div class="social-icons">
+        <a href="https://github.com/ayatullah011" target="_blank" title="GitHub">GH</a>
+        <a href="https://www.linkedin.com/in/qanyare-mohamed-222159338" target="_blank" title="LinkedIn">in</a>
+        <a href="#contact" title="Email">@</a>
+      </div>
     </div>
 
     <div class="hero-image">
       <div class="profile-card">
-        <!-- Put your uploaded homepage picture inside an images folder and name it home-photo.png -->
+        <!-- Put your homepage picture inside an images folder and name it home-photo.png -->
         <img src="images/home-photo.png" alt="Qanyare Mohamed Profile Picture">
       </div>
     </div>
@@ -488,7 +738,7 @@
         I am a university student studying Computer Applications. I am interested
         in web development, object-oriented programming, and building real-world
         software projects. My goal is to improve my practical skills by creating
-        useful projects step by step.
+        useful projects step by step and storing them in this portfolio.
       </p>
     </div>
   </section>
@@ -497,14 +747,14 @@
   <section id="skills">
     <h2 class="section-title">My <span>Skills</span></h2>
     <div class="skills-container">
-      <div class="skill-box">HTML</div>
-      <div class="skill-box">CSS</div>
-      <div class="skill-box">JavaScript</div>
-      <div class="skill-box">OOP</div>
-      <div class="skill-box">C#</div>
-      <div class="skill-box">Java</div>
-      <div class="skill-box">SQL</div>
-      <div class="skill-box">GitHub</div>
+      <div class="skill-box"><span class="skill-icon">🌐</span>HTML</div>
+      <div class="skill-box"><span class="skill-icon">🎨</span>CSS</div>
+      <div class="skill-box"><span class="skill-icon">⚡</span>JavaScript</div>
+      <div class="skill-box"><span class="skill-icon">🧠</span>OOP</div>
+      <div class="skill-box"><span class="skill-icon">💻</span>C#</div>
+      <div class="skill-box"><span class="skill-icon">☕</span>Java</div>
+      <div class="skill-box"><span class="skill-icon">🗄️</span>SQL</div>
+      <div class="skill-box"><span class="skill-icon">🔗</span>GitHub</div>
     </div>
   </section>
 
@@ -514,45 +764,76 @@
     <div class="projects-container">
 
       <div class="project-card">
-        <h3>Portfolio Website</h3>
-        <p>
-          A personal portfolio website to show my skills, education, contact
-          information, and future projects.
-        </p>
-        <span class="project-tag">HTML</span>
-        <span class="project-tag">CSS</span>
-        <span class="project-tag">JavaScript</span>
+        <div class="project-image">Portfolio Website</div>
+        <!-- Later you can replace the div above with: <img src="images/portfolio.png" alt="Portfolio Website"> -->
+        <div class="project-content">
+          <h3>Portfolio Website</h3>
+          <p>
+            A personal portfolio website to show my skills, education, contact
+            information, and future projects.
+          </p>
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+          <span class="project-tag">JavaScript</span>
+          <div class="project-buttons">
+            <a href="https://celadon-rabanadas-d76825.netlify.app/" target="_blank" class="demo-btn">Live Demo</a>
+            <a href="https://github.com/ayatullah011" target="_blank" class="code-btn">GitHub Code</a>
+          </div>
+        </div>
       </div>
 
       <div class="project-card">
-        <h3>Student Management System</h3>
-        <p>
-          A future project for adding, viewing, updating, deleting, and searching
-          student records using OOP and database concepts.
-        </p>
-        <span class="project-tag">C#</span>
-        <span class="project-tag">SQL</span>
-        <span class="project-tag">OOP</span>
+        <div class="project-image">Student System</div>
+        <div class="project-content">
+          <h3>Student Management System</h3>
+          <p>
+            A future project for adding, viewing, updating, deleting, and searching
+            student records using OOP and database concepts.
+          </p>
+          <span class="project-tag">C#</span>
+          <span class="project-tag">SQL</span>
+          <span class="project-tag">OOP</span>
+          <div class="project-buttons">
+            <a href="#" class="demo-btn">Coming Soon</a>
+            <a href="https://github.com/ayatullah011" target="_blank" class="code-btn">GitHub Code</a>
+          </div>
+        </div>
       </div>
 
       <div class="project-card">
-        <h3>To-Do List App</h3>
-        <p>
-          A simple app where users can add tasks, delete tasks, and mark tasks as
-          completed.
-        </p>
-        <span class="project-tag">HTML</span>
-        <span class="project-tag">CSS</span>
-        <span class="project-tag">JavaScript</span>
+        <div class="project-image">To-Do List</div>
+        <div class="project-content">
+          <h3>To-Do List App</h3>
+          <p>
+            A simple app where users can add tasks, delete tasks, and mark tasks as
+            completed.
+          </p>
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+          <span class="project-tag">JavaScript</span>
+          <div class="project-buttons">
+            <a href="#" class="demo-btn">Coming Soon</a>
+            <a href="https://github.com/ayatullah011" target="_blank" class="code-btn">GitHub Code</a>
+          </div>
+        </div>
       </div>
 
       <div class="project-card">
-        <h3>Calculator App</h3>
-        <p>
-          A basic calculator project that performs simple arithmetic operations
-          using JavaScript.
-        </p>
-        <span class="project-tag">JavaScript</span>
+        <div class="project-image">Calculator App</div>
+        <div class="project-content">
+          <h3>Calculator App</h3>
+          <p>
+            A basic calculator project that performs simple arithmetic operations
+            using JavaScript.
+          </p>
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+          <span class="project-tag">JavaScript</span>
+          <div class="project-buttons">
+            <a href="#" class="demo-btn">Coming Soon</a>
+            <a href="https://github.com/ayatullah011" target="_blank" class="code-btn">GitHub Code</a>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -572,11 +853,29 @@
   <!-- ===== CONTACT SECTION ===== -->
   <section id="contact">
     <h2 class="section-title">Contact <span>Me</span></h2>
-    <div class="contact-container">
-      <p><strong>Email:</strong> yourname@email.com</p>
-      <p><strong>Phone:</strong> +252 610150210</p>
-      <p><strong>GitHub:</strong> <a href="https://github.com/ayatullah011" target="_blank">github.com/ayatullah011</a></p>
-      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/qanyare-mohamed-222159338" target="_blank">linkedin.com/in/qanyare-mohamed-222159338</a></p>
+    <div class="contact-wrapper">
+
+      <div class="contact-info">
+        <p><strong>Email:</strong> ayatullah011@email.com</p>
+        <p><strong>Phone:</strong> +252 610150210</p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/ayatullah011" target="_blank">github.com/ayatullah011</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/qanyare-mohamed-222159338" target="_blank">linkedin.com/in/qanyare-mohamed-222159338</a></p>
+
+        <div class="social-icons">
+          <a href="https://github.com/ayatullah011" target="_blank" title="GitHub">GH</a>
+          <a href="https://www.linkedin.com/in/qanyare-mohamed-222159338" target="_blank" title="LinkedIn">in</a>
+          <a href="mailto:yourname@email.com" title="Email">@</a>
+        </div>
+      </div>
+
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Subject" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+
     </div>
   </section>
 
@@ -615,7 +914,7 @@
 
       <div class="footer-box">
         <h3>Contact Info</h3>
-        <p>Email: yourname@email.com</p>
+        <p>Email: ayatullah011@email.com</p>
         <p>Phone: +252 610150210</p>
         <p>GitHub: <a href="https://github.com/ayatullah011" target="_blank">github.com/ayatullah011</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/qanyare-mohamed-222159338" target="_blank">LinkedIn Profile</a></p>
@@ -630,11 +929,54 @@
 
   <!-- ===== JAVASCRIPT ===== -->
   <script>
-    // This function opens and closes the menu on mobile screens
+    // Open and close mobile menu
     function toggleMenu() {
       const navLinks = document.getElementById("navLinks");
+      const menuBtn = document.getElementById("menuBtn");
+
       navLinks.classList.toggle("active");
+
+      if (navLinks.classList.contains("active")) {
+        menuBtn.innerHTML = "✕";
+      } else {
+        menuBtn.innerHTML = "☰";
+      }
     }
+
+    // Close menu after clicking a link on mobile
+    function closeMenu() {
+      const navLinks = document.getElementById("navLinks");
+      const menuBtn = document.getElementById("menuBtn");
+      navLinks.classList.remove("active");
+      menuBtn.innerHTML = "☰";
+    }
+
+    // Dark and light mode
+    function toggleTheme() {
+      const body = document.body;
+      const themeBtn = document.getElementById("themeBtn");
+
+      body.classList.toggle("dark-mode");
+
+      if (body.classList.contains("dark-mode")) {
+        themeBtn.innerHTML = "☀️";
+        localStorage.setItem("theme", "dark");
+      } else {
+        themeBtn.innerHTML = "🌙";
+        localStorage.setItem("theme", "light");
+      }
+    }
+
+    // Keep selected theme after refresh
+    window.onload = function () {
+      const savedTheme = localStorage.getItem("theme");
+      const themeBtn = document.getElementById("themeBtn");
+
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+        themeBtn.innerHTML = "☀️";
+      }
+    };
   </script>
 
 </body>
