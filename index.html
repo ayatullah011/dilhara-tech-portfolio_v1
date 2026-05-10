@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dilhara Tech Portfolio</title>
+
+  <style>
+    /* ===== GENERAL STYLE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #f4f7fb;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    section {
+      padding: 70px 10%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 35px;
+      color: #0f172a;
+    }
+
+    .section-title span {
+      color: #2563eb;
+    }
+
+    /* ===== NAVBAR ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: #fc03d7;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 10%;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 900;
+      color: #2563eb;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: #0f172a;
+    }
+
+    .logo small {
+      background-color: #2563eb;
+      color: #ffffff;
+      padding: 4px 8px;
+      border-radius: 8px;
+      margin-right: 6px;
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #0f172a;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      background: linear-gradient(to right, #eff6ff, #ffffff);
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      color: #0f172a;
+      margin-bottom: 15px;
+    }
+
+    .hero-text h1 span {
+      color: #2563eb;
+    }
+
+    .hero-text h3 {
+      font-size: 24px;
+      color: #334155;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      max-width: 550px;
+      color: #475569;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #2563eb;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: #2563eb;
+      border: 2px solid #2563eb;
+      margin-left: 10px;
+    }
+
+    .btn-outline:hover {
+      background-color: #2563eb;
+      color: #ffffff;
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-card {
+      width: 360px;
+      height: 460px;
+      background: linear-gradient(135deg, #dbeafe, #ffffff);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.25);
+      border: 6px solid #ffffff;
+    }
+
+    .profile-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    /* ===== ABOUT SECTION ===== */
+    .about-content {
+      max-width: 850px;
+      margin: auto;
+      background-color: #ffffff;
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .about-content p {
+      font-size: 18px;
+      color: #475569;
+    }
+
+    /* ===== SKILLS SECTION ===== */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-box {
+      background-color: #ffffff;
+      padding: 25px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      font-weight: bold;
+      color: #0f172a;
+      transition: 0.3s;
+    }
+
+    .skill-box:hover {
+      transform: translateY(-8px);
+      color: #2563eb;
+    }
+
+    /* ===== PROJECTS SECTION ===== */
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      background-color: #ffffff;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .project-card h3 {
+      color: #2563eb;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: #475569;
+      margin-bottom: 15px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      background-color: #dbeafe;
+      color: #2563eb;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin: 5px 5px 5px 0;
+    }
+
+    /* ===== EDUCATION SECTION ===== */
+    .education-box {
+      max-width: 800px;
+      margin: auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-left: 5px solid #2563eb;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .education-box h3 {
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    .education-box p {
+      color: #475569;
+      margin-bottom: 8px;
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-container {
+      max-width: 700px;
+      margin: auto;
+      background-color: #ffffff;
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-container p {
+      margin-bottom: 15px;
+      font-size: 18px;
+      color: #475569;
+    }
+
+    .contact-container strong {
+      color: #0f172a;
+    }
+
+    .contact-container a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-container a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: #fc03d7;
+      color: #ffffff;
+      padding: 50px 10% 20px;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .footer-logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: #60a5fa;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo span {
+      color: #ffffff;
+    }
+
+    .footer-box p {
+      color: #cbd5e1;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .footer-box h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    .footer-box ul {
+      list-style: none;
+    }
+
+    .footer-box ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-box ul li a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-box ul li a:hover {
+      color: #60a5fa;
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #334155;
+      padding-top: 20px;
+    }
+
+    .footer-bottom p {
+      font-size: 15px;
+      color: #cbd5e1;
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 768px) {
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background-color: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 60px;
+      }
+
+      .hero-text h1 {
+        font-size: 36px;
+      }
+
+      .hero-text h3 {
+        font-size: 20px;
+      }
+
+      .profile-card {
+        width: 260px;
+        height: 340px;
+      }
+
+      .btn-outline {
+        margin-left: 0;
+        margin-top: 12px;
+      }
+
+      .footer-container {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header>
+    <nav class="navbar">
+      <div class="logo"><small>D</small>Dilhara <span>Tech</span></div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h1>Hello, I am <span>Abdullahi Adan Mohamed</span></h1>
+      <h3>Computer Applications Student</h3>
+      <p>
+        I am a semester six university student learning web development,
+        OOP concepts, database systems, and software development. This portfolio
+        will store my projects and show my progress as a developer.
+      </p>
+      <a href="#projects" class="btn">View Projects</a>
+      <a href="#contact" class="btn btn-outline">Contact Me</a>
+    </div>
+
+    <div class="hero-image">
+      <div class="profile-card">
+        <!-- Put your uploaded homepage picture inside an images folder and name it home-photo.png -->
+        <img src="images/home-photo.png" alt="Qanyare Mohamed Profile Picture">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section id="about">
+    <h2 class="section-title">About <span>Me</span></h2>
+    <div class="about-content">
+      <p>
+        I am a university student studying Computer Applications. I am interested
+        in web development, object-oriented programming, and building real-world
+        software projects. My goal is to improve my practical skills by creating
+        useful projects step by step.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS SECTION ===== -->
+  <section id="skills">
+    <h2 class="section-title">My <span>Skills</span></h2>
+    <div class="skills-container">
+      <div class="skill-box">HTML</div>
+      <div class="skill-box">CSS</div>
+      <div class="skill-box">JavaScript</div>
+      <div class="skill-box">OOP</div>
+      <div class="skill-box">C#</div>
+      <div class="skill-box">Java</div>
+      <div class="skill-box">SQL</div>
+      <div class="skill-box">GitHub</div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section id="projects">
+    <h2 class="section-title">My <span>Projects</span></h2>
+    <div class="projects-container">
+
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>
+          A personal portfolio website to show my skills, education, contact
+          information, and future projects.
+        </p>
+        <span class="project-tag">HTML</span>
+        <span class="project-tag">CSS</span>
+        <span class="project-tag">JavaScript</span>
+      </div>
+
+      <div class="project-card">
+        <h3>Student Management System</h3>
+        <p>
+          A future project for adding, viewing, updating, deleting, and searching
+          student records using OOP and database concepts.
+        </p>
+        <span class="project-tag">C#</span>
+        <span class="project-tag">SQL</span>
+        <span class="project-tag">OOP</span>
+      </div>
+
+      <div class="project-card">
+        <h3>To-Do List App</h3>
+        <p>
+          A simple app where users can add tasks, delete tasks, and mark tasks as
+          completed.
+        </p>
+        <span class="project-tag">HTML</span>
+        <span class="project-tag">CSS</span>
+        <span class="project-tag">JavaScript</span>
+      </div>
+
+      <div class="project-card">
+        <h3>Calculator App</h3>
+        <p>
+          A basic calculator project that performs simple arithmetic operations
+          using JavaScript.
+        </p>
+        <span class="project-tag">JavaScript</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION SECTION ===== -->
+  <section id="education">
+    <h2 class="section-title">My <span>Education</span></h2>
+    <div class="education-box">
+      <h3>University Student</h3>
+      <p><strong>Program:</strong> Computer Applications</p>
+      <p><strong>Semester:</strong> Six</p>
+      <p><strong>Main Courses:</strong> OOP, HTML, CSS, Database, Programming, Computer Applications</p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact">
+    <h2 class="section-title">Contact <span>Me</span></h2>
+    <div class="contact-container">
+      <p><strong>Email:</strong> yourname@email.com</p>
+      <p><strong>Phone:</strong> +252 610150210</p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/ayatullah011" target="_blank">github.com/ayatullah011</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/qanyare-mohamed-222159338" target="_blank">linkedin.com/in/qanyare-mohamed-222159338</a></p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-container">
+
+      <div class="footer-box">
+        <div class="footer-logo">Dilhara<span>Tech</span></div>
+        <p>
+          A personal portfolio website for showing my skills, education,
+          projects, and progress as a Computer Applications student.
+        </p>
+      </div>
+
+      <div class="footer-box">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-box">
+        <h3>Projects</h3>
+        <ul>
+          <li><a href="#projects">Portfolio Website</a></li>
+          <li><a href="#projects">Student Management System</a></li>
+          <li><a href="#projects">To-Do List App</a></li>
+          <li><a href="#projects">Calculator App</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-box">
+        <h3>Contact Info</h3>
+        <p>Email: yourname@email.com</p>
+        <p>Phone: +252 610150210</p>
+        <p>GitHub: <a href="https://github.com/ayatullah011" target="_blank">github.com/ayatullah011</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/qanyare-mohamed-222159338" target="_blank">LinkedIn Profile</a></p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Qanyare Mohamed. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // This function opens and closes the menu on mobile screens
+    function toggleMenu() {
+      const navLinks = document.getElementById("navLinks");
+      navLinks.classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>
